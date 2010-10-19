@@ -79,6 +79,8 @@ sub get_last_desc { $_[0]->{last_result}->{desc} }
 
 __END__
 
+=encoding utf8
+
 =head1 NAME
 
 Net::SMS::SMSOnline - send SMS through smsonline.ru
@@ -96,10 +98,6 @@ Net::SMS::SMSOnline - send SMS through smsonline.ru
         to  => '79991112233',
         msg => 'Hello, World!',
     );
-
-=head1 DESCRIPTION
-
-TO FILL
 
 =head1 METHODS
 
@@ -165,8 +163,10 @@ Returns stringified description of result code of last sent message
 
 L<http://www.smsonline.ru> - SMSOnline official site
 
+=head1 AUTHOR
+
+Алексей Суриков E<lt>ksuri@cpan.orgE<gt>
+
 =head1 LICENSE
 
 This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself
-
-=cut
