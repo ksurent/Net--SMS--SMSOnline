@@ -1,0 +1,66 @@
+NAME
+    Net::SMS::SMSOnline - send SMS through smsonline.ru
+
+SYNOPSIS
+        use Net::SMS::SMSOnline;
+
+        my $sms_sender = Net::SMS::SMSOnline->new(
+            user => 'my_smsonline_username',
+            pass => 'my_smsonline_password',
+        );
+
+        my $result = $sms_sender->send_sms(
+            to  => '79991112233',
+            msg => 'Hello, World!',
+        );
+
+METHODS
+  Constructor
+    Arguments are:
+
+    * `user'
+            REQUIRED.
+
+    * `pass'
+            REQUIRED.
+
+  send_sms
+    Sends your message. Arguments are:
+
+    * `to'
+            REQUIRED. Phone number of the recipient in international format (7 + CODE + PHONE). Must be <= 11 bytes length (numeric only)
+
+    * `msg'
+            REQUIRED. Text of your message. Note that if length of your message will be > 70 bytes it will be rated as several messages
+
+    * `from'
+            OPTIONAL. Set your CallerID for this message. Must be <= 11 bytes length (alpha-numeric)
+
+    * `notify'
+            OPTIONAL. Notify you about status of recently sent messages
+
+    * `msg_id'
+            OPTIONAL. A unique id of this message
+
+    Returns 1 on success and 0 otherwise
+
+  get_last_result
+    Returns HASHREF with `code' and `desc' keys containing code and its
+    description of last sent message
+
+  get_last_code
+    Returns result code of last sent message
+
+  get_last_desc
+    Returns stringified description of result code of last sent message
+
+SEE ALSO
+    http://www.smsonline.ru - SMSOnline official site
+
+AUTHOR
+    Алексей Суриков <ksuri@cpan.org>
+
+LICENSE
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself
+
