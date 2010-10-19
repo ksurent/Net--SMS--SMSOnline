@@ -1,11 +1,11 @@
-use ExtUtils::MakeMaker;
+use inc::Module::Install;
 
-WriteMakefile(
-    NAME              => 'Net::SMS::SMSOnline',
-    VERSION_FROM      => 'lib/Net/SMS/SMSOnline.pm',
-    PREREQ_PM         => {
-        'LWP::UserAgent' => 0,
-	    'XML::LibXML'    => 0,
-        'Carp'           => 0,
-    },
-);
+perl_version 5.006;
+all_from 'lib/Net/SMS/SMSOnline.pm';
+requires 'LWP::UserAgent';
+requires 'XML::LibXML';
+requires 'Carp';
+
+repository 'http://github.com/ksurent/Net--SMS--SMSOnline';
+
+WriteAll;
